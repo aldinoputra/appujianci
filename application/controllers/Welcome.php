@@ -29,8 +29,20 @@ class Welcome extends CI_Controller
 
     public function tampil()
     {
+
+        $nama = $this>input>post('nama');
+        $nim = $this>input>post('nim');
+        $umur = $this>input>post('umur');
+
+        if($nama == 'aldino' && $nim == 'G.111.22.0033' && $umur == '23'){
+            redirect('Welcome/index');
+        }
+    
+
         $nama = 'tata';
         $blade = new Blade(VIEWPATH, APPPATH . 'cache');
         echo $blade->make('tampil', ['nama' => $nama])->render();
+
+    
     }
 }
